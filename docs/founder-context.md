@@ -3,7 +3,7 @@
 ## Facts
 | Item | Value |
 |---|---|
-| Team | Solo; coordinates a wide network of partners; will hire over time |
+| Team | Solo; will hire over time. **Has a trusted contact in Dubai for anything**; can refer a UK tax adviser |
 | Residence | UK resident and UK tax resident; about 6 months a year in Dubai; holds a UAE residence visa (Emirates ID) and a UAE bank account. **No UK family or home ties.** Plans to move to Dubai full-time and never return to the UK |
 | Capital | £2–3k savings; doesn't need income from this to live on |
 | Commitment | Full-time |
@@ -24,6 +24,11 @@
 | 2026-10-12 | Commissions by bank transfer against an invoice only, never cash; written referral agreement before the first introduction | Real estate is high-risk for anti-money-laundering rules, unlicensed income paid into a personal account is risky, and UK tax applies to worldwide income |
 | 2026-10-12 | Grow in the UK Ltd now; optimise tax in 2–3 years by moving to Dubai full-time (becoming non-UK resident) and running a UAE company | Don't let tax workarounds lead the business; family-routing options were rejected as unlawful |
 | 2026-10-12 | Cap at 3–4 active families until the first hire | A solo founder can't deliver more without quality slipping |
+
+## Service principles
+- Every step of the timeline comes with a named referral from the founder's network.
+- Schools are shortlisted in a meeting with the parents **and the children**.
+- Contact: Karan Somani, +44 7759 760974. A dedicated email (karanrelocate@gmail.com) is to be created by the founder.
 
 ## Tax residence notes (not advice; confirm with adviser)
 - With no UK family or home, the remaining UK ties are likely the **90-day tie** (more than 90 UK days in either of the previous 2 tax years), plus possibly the **work tie** (40+ UK days with more than 3 hours' work) and the **country tie** (more midnights in the UK than in any other country).

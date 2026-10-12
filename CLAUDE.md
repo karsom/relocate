@@ -6,7 +6,7 @@ Context for any Claude session working in this repo. Read `docs/founder-context.
 Relocate is a premium, personalised UK → Dubai relocation service, delivered as a concierge service backed by a private client portal (built no-code).
 
 ## Founder (key facts)
-- Solo founder with a large network of partners to coordinate. Plans to hire a team over time.
+- Solo founder. **Has a trusted contact in Dubai for anything**: every step of a move can come with a referral from the founder. Also knows UK contacts (e.g. a tax adviser). Plans to hire a team over time.
 - UK tax resident today; spends about half the year in Dubai; holds an Emirates ID and a UAE bank account. **No UK family or home ties.** Will move to Dubai full-time, won't return to the UK, and will move the company to the UAE.
 - About £2–3k of savings to start; works on this full-time but doesn't depend on it for income.
 - Wants first revenue by Dec 2026 and **£100k/month by Jul 2027**.

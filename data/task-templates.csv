@@ -44,7 +44,7 @@ T042,Visas,Domestic worker visas for staff,Partner,30,Parent;PA,has_staff
 T043,Visas,Staff medical and Emirates ID,Partner,40,Parent;PA,has_staff
 T044,Visas,Staff employment contract and insurance,Client,40,Parent,has_staff
 T045,Schools,School needs call (curriculum / SEN / ethos / commute),Founder,-115,Parent,has_kids
-T046,Schools,Shortlist 4-6 schools per child with KHDA rating and fees,Founder,-110,Parent;PA,has_kids
+T046,Schools,Shortlist meeting with parents and children: 4-6 schools per child (KHDA rating/fees/commute),Founder,-110,Parent;PA,has_kids
 T047,Schools,Check waitlists and term-start dates,Founder,-108,Parent;PA,has_kids
 T048,Schools,Book virtual or in-person tours,PA,-100,Parent;PA,has_kids
 T049,Schools,Submit applications and pay application fees,PA,-95,Parent;PA,has_kids
