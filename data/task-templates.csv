@@ -1,0 +1,134 @@
+id,pillar,task,owner_type,offset_days,visible_to,conditions
+T001,Onboarding,Discovery call with parents (and PA),Founder,-120,Parent;PA,always
+T002,Onboarding,Send engagement letter incl. no-advice clause and commission disclosure,Founder,-118,Parent,always
+T003,Onboarding,Collect fee (50% upfront),Founder,-117,Parent,always
+T004,Onboarding,Send Tally intake form,Founder,-117,Parent;PA,always
+T005,Onboarding,Create portal logins for parents and PA,Founder,-115,Internal,always
+T006,Onboarding,Set up encrypted document vault for family,Founder,-115,Parent;PA,always
+T007,Onboarding,Generate personalised move plan and walk family through it,Founder,-112,Parent;PA,always
+T008,Onboarding,Agree weekly update day and channel,Founder,-112,Parent;PA,always
+T009,UK Exit,Introduce UK private client tax adviser,Founder,-115,Parent,always
+T010,UK Exit,Tax adviser confirms SRT / leaving-UK plan (adviser-led),Partner,-90,Parent,always
+T011,UK Exit,Agree UK leaving date for tax purposes (with adviser),Client,-80,Parent,always
+T012,UK Exit,Notify HMRC of departure (P85 or SA) via adviser,Partner,10,Parent,always
+T013,UK Exit,Notify council tax and utilities of move-out,PA,0,Parent;PA,always
+T014,UK Exit,Redirect post (Royal Mail) for 12 months,PA,-7,Parent;PA,always
+T015,UK Exit,Update address with UK banks and pensions,Client,7,Parent,always
+T016,UK Exit,Deregister from GP / NHS,PA,14,Parent;PA,always
+T017,UK Exit,Cancel or transfer UK subscriptions and memberships,PA,-14,Parent;PA,always
+T018,UK Exit,Cancel UK car insurance and SORN or sell cars,PA,-7,Parent;PA,always
+T019,UK Exit,Give UK school notice (check term notice period),Client,-120,Parent;PA,has_kids
+T020,UK Exit,Request school reports and records for all children,PA,-100,Parent;PA,has_kids
+T021,UK Home,Introduce letting agent and agree rent,Founder,-90,Parent,uk_home=let
+T022,UK Home,Register under Non-Resident Landlord Scheme (via adviser),Partner,-30,Parent,uk_home=let
+T023,UK Home,Landlord insurance switched to let property,Client,-14,Parent,uk_home=let
+T024,UK Home,Introduce estate agent and instruct sale,Founder,-120,Parent,uk_home=sell
+T025,UK Home,Introduce conveyancing solicitor,Founder,-100,Parent,uk_home=sell
+T026,UK Home,Agree completion date aligned to move,Client,-60,Parent,uk_home=sell
+T027,UK Home,Arrange property manager / caretaker for empty home,Founder,-30,Parent,uk_home=keep
+T028,UK Home,Unoccupied home insurance in place,Client,-7,Parent,uk_home=keep
+T029,UK Home,Set up UK storage unit,PA,-21,Parent;PA,uk_storage
+T030,Visas,Introduce licensed PRO partner,Founder,-110,Parent;PA,always
+T031,Visas,Decide visa route (Golden / employment / investor / property),Partner,-100,Parent,always
+T032,Visas,Collect passport copies and photos into vault,PA,-100,Parent;PA,always
+T033,Visas,Attest UK marriage certificate (FCDO + UAE embassy),PA,-95,Parent;PA,always
+T034,Visas,Attest children's birth certificates,PA,-95,Parent;PA,has_kids
+T035,Visas,Attest degree certificates if needed for employment visa,PA,-95,Parent;PA,always
+T036,Visas,Submit principal visa / Golden Visa application,Partner,-60,Parent,always
+T037,Visas,Entry permit issued,Partner,-30,Parent;PA,always
+T038,Visas,Medical fitness test booked,Partner,5,Parent;PA,always
+T039,Visas,Emirates ID biometrics,Partner,7,Parent;PA,always
+T040,Visas,Residence visa stamped for principal,Partner,14,Parent;PA,always
+T041,Visas,Dependent visas for spouse and children,Partner,21,Parent;PA,has_kids
+T042,Visas,Domestic worker visas for staff,Partner,30,Parent;PA,has_staff
+T043,Visas,Staff medical and Emirates ID,Partner,40,Parent;PA,has_staff
+T044,Visas,Staff employment contract and insurance,Client,40,Parent,has_staff
+T045,Schools,School needs call (curriculum / SEN / ethos / commute),Founder,-115,Parent,has_kids
+T046,Schools,Shortlist 4-6 schools per child with KHDA rating and fees,Founder,-110,Parent;PA,has_kids
+T047,Schools,Check waitlists and term-start dates,Founder,-108,Parent;PA,has_kids
+T048,Schools,Book virtual or in-person tours,PA,-100,Parent;PA,has_kids
+T049,Schools,Submit applications and pay application fees,PA,-95,Parent;PA,has_kids
+T050,Schools,Schedule entrance assessments,Founder,-80,Parent;PA,has_kids
+T051,Schools,Prepare children for assessments,Client,-75,Parent,has_kids
+T052,Schools,Collect offers and compare,Founder,-60,Parent,has_kids
+T053,Schools,Accept offer and pay seat deposit,Client,-55,Parent,has_kids
+T054,Schools,Uniforms / books / transport / lunch set up,PA,-14,Parent;PA,has_kids
+T055,Schools,SEN support plan agreed with school,Founder,-45,Parent,has_kids
+T056,Schools,Extracurriculars and clubs booked,PA,21,Parent;PA,has_kids
+T057,Property,Brief broker partner on requirements,Founder,-100,Parent,always
+T058,Property,Area tour itinerary (factor school commute),Founder,-90,Parent;PA,always
+T059,Property,Shortlist 8-12 properties,Partner,-80,Parent;PA,always
+T060,Property,Viewing trip (or video viewings),Founder,-75,Parent;PA,always
+T061,Property,Rental: offer and tenancy contract (Ejari),Partner,-45,Parent,always
+T062,Property,Rental: post-dated cheques / payment plan arranged,Client,-40,Parent,always
+T063,Property,Purchase: MOU (Form F) signed,Partner,-60,Parent,buying
+T064,Property,Purchase: mortgage or cash funds confirmed (via bank partner),Partner,-55,Parent,buying
+T065,Property,Purchase: snagging / survey,Partner,-40,Parent,buying
+T066,Property,Purchase: DLD transfer and title deed,Partner,-30,Parent,buying
+T067,Property,Property-linked Golden Visa check (AED 2m+),Partner,-25,Parent,buying
+T068,Property,DEWA (utilities) connected,PA,-7,Parent;PA,always
+T069,Property,Internet and TV (du / e&) installed,PA,-7,Parent;PA,always
+T070,Property,Home insurance,Client,-7,Parent,always
+T071,Property,Interior design / furnishing brief,Founder,-40,Parent;PA,always
+T072,Property,Furniture delivered and installed,Partner,-3,Parent;PA,always
+T073,Property,Security system / smart home set up,Partner,-3,Parent;PA,always
+T074,Property,Deep clean before arrival,Partner,-2,Parent;PA,always
+T075,Property,Stock fridge and essentials for arrival,PA,-1,Parent;PA,always
+T076,Property Care,Introduce licensed property manager,Founder,30,Parent,property_care
+T077,Property Care,Maintenance contract (AC / pool / garden / pest),Partner,30,Parent;PA,property_care
+T078,Property Care,Monthly property report to client,Partner,60,Parent,property_care
+T079,Freight,Get 3 mover quotes (survey),Founder,-90,Parent;PA,freight
+T080,Freight,Choose mover and book,Client,-80,Parent,freight
+T081,Freight,Inventory and valuation for insurance,PA,-45,Parent;PA,freight
+T082,Freight,Transit insurance in place,Partner,-30,Parent,freight
+T083,Freight,Pack day,Partner,-21,Parent;PA,freight
+T084,Freight,Container sails,Partner,-18,Parent;PA,freight
+T085,Freight,Customs documents (passport / visa / inventory) submitted,Partner,5,Parent;PA,freight
+T086,Freight,Customs clearance Jebel Ali,Partner,20,Parent;PA,freight
+T087,Freight,Delivery and unpack,Partner,25,Parent;PA,freight
+T088,Freight,Air freight for urgent items,Partner,-7,Parent;PA,freight
+T089,Freight,Fine-art shipper and crating,Partner,-40,Parent,high_value
+T090,Freight,Wine shipping and import permit,Partner,-40,Parent,high_value
+T091,Freight,Jewellery / valuables hand-carry or secure courier,Partner,-7,Parent,high_value
+T092,Pets,Check breed is allowed in UAE,Founder,-120,Parent;PA,has_pets
+T093,Pets,Microchip and rabies vaccination,Client,-110,Parent;PA,has_pets
+T094,Pets,Rabies titre test (wait period),Partner,-90,Parent;PA,has_pets
+T095,Pets,UAE import permit (MOCCAE),Partner,-21,Parent;PA,has_pets
+T096,Pets,Pet relocation flight booked,Partner,-14,Parent;PA,has_pets
+T097,Pets,Register with Dubai vet and municipality,PA,14,Parent;PA,has_pets
+T098,Vehicles,Ship car: export docs and DVLA notification,Partner,-30,Parent;PA,ship_car
+T099,Vehicles,Ship car: GCC spec / RTA registration,Partner,30,Parent;PA,ship_car
+T100,Vehicles,Buy / lease car in Dubai,Founder,10,Parent;PA,always
+T101,Vehicles,Convert UK driving licence to UAE,PA,20,Parent;PA,always
+T102,Vehicles,Car insurance and Salik tag,PA,20,Parent;PA,always
+T103,Vehicles,Driver hired (if needed),Founder,10,Parent;PA,always
+T104,Banking,Introduce private bank relationship manager,Founder,-60,Parent,always
+T105,Banking,Bank account opening (KYC / source of wealth),Partner,15,Parent,always
+T106,Banking,Credit cards and local payments set up,Client,20,Parent,always
+T107,Banking,FX transfer partner for GBP→AED,Founder,-30,Parent,always
+T108,Healthcare,Health insurance quotes (family),Partner,-30,Parent,always
+T109,Healthcare,Health insurance bound (mandatory in Dubai),Client,-14,Parent,always
+T110,Healthcare,Staff health insurance (employer duty),Partner,30,Parent,has_staff
+T111,Healthcare,Register with GP / paediatrician / dentist,PA,21,Parent;PA,always
+T112,Healthcare,Transfer medical records and prescriptions,PA,-14,Parent;PA,always
+T113,Founder,Choose free zone vs mainland,Partner,-90,Parent,founder
+T114,Founder,Company licence application,Partner,-75,Parent,founder
+T115,Founder,Corporate bank account,Partner,-30,Parent,founder
+T116,Founder,Corporate tax and economic substance registration,Partner,-20,Parent,founder
+T117,Founder,Office / co-working arranged,Founder,-10,Parent,founder
+T118,Investments,Introduce licensed wealth manager (introducer agreement in place),Founder,30,Parent,investments
+T119,Investments,Introduce licensed property investment broker,Founder,45,Parent,investments
+T120,Arrival,Airport meet and greet (fast track),Partner,0,Parent;PA,always
+T121,Arrival,Temporary serviced apartment / hotel if home not ready,Founder,0,Parent;PA,always
+T122,Arrival,Local SIM cards,PA,1,Parent;PA,always
+T123,Arrival,Orientation day (neighbourhood / shops / hospitals),Founder,3,Parent;PA,always
+T124,Arrival,Household staff sourced (nanny / housekeeper),Founder,7,Parent;PA,always
+T125,Social,Club memberships (beach / golf / sports),Founder,21,Parent;PA,always
+T126,Social,Introductions to parent community and networks,Founder,30,Parent,always
+T127,Social,Faith / community connections,Founder,21,Parent,always
+T128,Closeout,30-day check-in,Founder,30,Parent;PA,always
+T129,Closeout,90-day review and testimonial request,Founder,90,Parent,package=Family
+T130,Closeout,Ask for 2 referrals,Founder,60,Parent,always
+T131,Closeout,Invoice balance (50%),Founder,1,Parent,always
+T132,Closeout,Offer Property Care retainer,Founder,60,Parent,always
+T133,Closeout,Revoke portal access,Founder,120,Internal,always
