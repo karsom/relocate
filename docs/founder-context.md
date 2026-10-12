@@ -4,7 +4,7 @@
 | Item | Value |
 |---|---|
 | Team | Solo; coordinates a wide network of partners; will hire over time |
-| Residence | UK resident and UK tax resident; about 6 months a year in Dubai |
+| Residence | UK resident and UK tax resident; about 6 months a year in Dubai; holds a UAE residence visa (Emirates ID) and a UAE bank account |
 | Capital | £2–3k savings; doesn't need income from this to live on |
 | Commitment | Full-time |
 | Revenue goals | First revenue by Dec 2026; £100k/month by Jul 2027 |
@@ -21,6 +21,7 @@
 | 2026-10-12 | Introduce only on investments, property, visas and tax | All are regulated activities |
 | 2026-10-12 | UK Ltd first, UAE free-zone company later | No tax benefit while UK resident (central management and control and controlled-foreign-company rules); save cash |
 | 2026-10-12 | No-code stack (Airtable/Softr/Tally/Make) | Speed and a budget of about £100/month |
+| 2026-10-12 | Commissions by bank transfer against an invoice only, never cash; written referral agreement before the first introduction | Real estate is high-risk for anti-money-laundering rules, unlicensed income paid into a personal account is risky, and UK tax applies to worldwide income |
 | 2026-10-12 | Cap at 3–4 active families until the first hire | A solo founder can't deliver more without quality slipping |
 
 ## Open questions
