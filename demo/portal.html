@@ -1,0 +1,288 @@
+<title>Relocate Client Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: private-bank style portal. Slim top bar, tab rail, one content column; overview is a 2-col grid that stacks on phones. */
+:root{
+  --bg:#F5F6F4; --surface:#FFFFFF; --ink:#132321; --muted:#5B6B68; --line:#DDE3E1;
+  --accent:#0E5A55; --accent-soft:#E2EEEC; --brass:#9A7428; --brass-soft:#F3ECDD;
+  --ok:#2F7A4B; --ok-soft:#E3F1E8; --warn:#A66A0C; --warn-soft:#FBF0DC; --crit:#A63A2E; --crit-soft:#F8E4E1;
+  --display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1716; --surface:#14211F; --ink:#E7EEEC; --muted:#93A5A1; --line:#25383A;
+  --accent:#5FB8AE; --accent-soft:#16332F; --brass:#D2AE62; --brass-soft:#2E2715;
+  --ok:#6CC28C; --ok-soft:#163222; --warn:#E3A84A; --warn-soft:#33270F; --crit:#E57C6E; --crit-soft:#3A1C18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1716; --surface:#14211F; --ink:#E7EEEC; --muted:#93A5A1; --line:#25383A;
+  --accent:#5FB8AE; --accent-soft:#16332F; --brass:#D2AE62; --brass-soft:#2E2715;
+  --ok:#6CC28C; --ok-soft:#163222; --warn:#E3A84A; --warn-soft:#33270F; --crit:#E57C6E; --crit-soft:#3A1C18; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0 48px}
+.demo{background:var(--brass-soft);color:var(--brass);font-size:12.5px;text-align:center;padding:7px 16px;letter-spacing:.02em}
+header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:20px 14px}
+.brand{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em}
+.brand small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.role{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{border:0;background:transparent;color:var(--muted);font:600 13px var(--body);padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+button:focus-visible,.tabs button:focus-visible,select:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:24px;scrollbar-width:none}
+.tabs button{border:0;background:none;color:var(--muted);font:600 14px var(--body);padding:12px 12px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs button .lock{font-size:11px;margin-left:4px}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(28px,4.6vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:500;font-size:22px;margin:0 0 4px;text-wrap:balance}
+.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.sub{color:var(--muted);margin:6px 0 0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:28px}
+.count{text-align:right}
+.count .big{font-family:var(--display);font-size:56px;line-height:1;color:var(--accent)}
+.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;min-width:0}
+.panel + .panel{margin-top:0}
+.stack{display:grid;gap:20px;align-content:start}
+.pillar{display:grid;grid-template-columns:120px 1fr 44px;gap:12px;align-items:center;padding-block:7px;font-size:14px}
+.bar{height:6px;background:var(--accent-soft);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.pillar .num{text-align:right;color:var(--muted);font-size:13px}
+.ring{display:flex;gap:18px;align-items:center;margin-bottom:12px}
+.list{list-style:none;margin:0;padding:0}
+.list li{display:grid;grid-template-columns:1fr auto;gap:12px;padding-block:11px;border-top:1px solid var(--line);align-items:start}
+.list li:first-child{border-top:0}
+.meta{font-size:12.5px;color:var(--muted)}
+.chip{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
+.c-done{background:var(--ok-soft);color:var(--ok)} .c-prog{background:var(--accent-soft);color:var(--accent)}
+.c-you{background:var(--warn-soft);color:var(--warn)} .c-todo{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.c-crit{background:var(--crit-soft);color:var(--crit)} .c-brass{background:var(--brass-soft);color:var(--brass)}
+.update p{margin:8px 0 0;max-width:65ch}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:center}
+select{font:500 14px var(--body);padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.month{margin-top:22px}
+.month h3{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 6px}
+.task{display:grid;grid-template-columns:76px 1fr auto;gap:12px;padding-block:10px;border-top:1px solid var(--line);align-items:center}
+.task .num{font-size:12.5px;color:var(--muted)}
+.task .t{min-width:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.villa .ph{aspect-ratio:16/9;border-radius:8px;margin-bottom:12px;max-width:100%;background:linear-gradient(160deg,var(--accent-soft),var(--brass-soft))}
+.villa h4,.kid h4{margin:0;font-size:16px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:13.5px;margin-top:10px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;text-align:right}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th{text-align:left;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:22px 1fr auto;gap:14px;padding-bottom:18px;position:relative}
+.steps li::before{content:"";position:absolute;left:10px;top:20px;bottom:0;width:2px;background:var(--line)}
+.steps li:last-child::before{display:none}
+.dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:var(--surface);position:relative;z-index:1}
+.dot.done{background:var(--accent);border-color:var(--accent)} .dot.now{border-color:var(--brass);box-shadow:0 0 0 4px var(--brass-soft)}
+.locked{text-align:center;padding:48px 20px;color:var(--muted)}
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;margin-bottom:10px}
+.note{font-size:12.5px;color:var(--muted);margin-top:14px;max-width:70ch}
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+  .count{text-align:left}
+  .pillar{grid-template-columns:96px 1fr 40px}
+  .task{grid-template-columns:1fr auto}
+  .task .num{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:no-preference){.bar i{transition:width .5s ease}}
+</style>
+
+<div class="demo">Demo portal with example data. The Harrington family is fictional.</div>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Relocate<small>Private relocation · London → Dubai</small></div>
+    <div class="role"><span>Viewing as</span>
+      <div class="seg" role="group" aria-label="Viewing role">
+        <button id="r-parent" aria-pressed="true">Parent</button>
+        <button id="r-pa" aria-pressed="false">PA</button>
+      </div>
+    </div>
+  </header>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+  <main id="view"></main>
+</div>
+
+<script>
+const TASKS = [["T001","Onboarding","Discovery call with parents (and PA)","Founder",-120,"Parent;PA"],["T002","Onboarding","Send engagement letter incl. no-advice clause and commission disclosure","Founder",-118,"Parent"],["T003","Onboarding","Collect fee (50% upfront)","Founder",-117,"Parent"],["T004","Onboarding","Send Tally intake form","Founder",-117,"Parent;PA"],["T005","Onboarding","Create portal logins for parents and PA","Founder",-115,"Internal"],["T006","Onboarding","Set up encrypted document vault for family","Founder",-115,"Parent;PA"],["T007","Onboarding","Generate personalised move plan and walk family through it","Founder",-112,"Parent;PA"],["T008","Onboarding","Agree weekly update day and channel","Founder",-112,"Parent;PA"],["T009","UK Exit","Introduce UK private client tax adviser","Founder",-115,"Parent"],["T010","UK Exit","Tax adviser confirms SRT / leaving-UK plan (adviser-led)","Partner",-90,"Parent"],["T011","UK Exit","Agree UK leaving date for tax purposes (with adviser)","Client",-80,"Parent"],["T012","UK Exit","Notify HMRC of departure (P85 or SA) via adviser","Partner",10,"Parent"],["T013","UK Exit","Notify council tax and utilities of move-out","PA",0,"Parent;PA"],["T014","UK Exit","Redirect post (Royal Mail) for 12 months","PA",-7,"Parent;PA"],["T015","UK Exit","Update address with UK banks and pensions","Client",7,"Parent"],["T016","UK Exit","Deregister from GP / NHS","PA",14,"Parent;PA"],["T017","UK Exit","Cancel or transfer UK subscriptions and memberships","PA",-14,"Parent;PA"],["T018","UK Exit","Cancel UK car insurance and SORN or sell cars","PA",-7,"Parent;PA"],["T019","UK Exit","Give UK school notice (check term notice period)","Client",-120,"Parent;PA"],["T020","UK Exit","Request school reports and records for all children","PA",-100,"Parent;PA"],["T021","UK Home","Introduce letting agent and agree rent","Founder",-90,"Parent"],["T022","UK Home","Register under Non-Resident Landlord Scheme (via adviser)","Partner",-30,"Parent"],["T023","UK Home","Landlord insurance switched to let property","Client",-14,"Parent"],["T030","Visas","Introduce licensed PRO partner","Founder",-110,"Parent;PA"],["T031","Visas","Decide visa route (Golden / employment / investor / property)","Partner",-100,"Parent"],["T032","Visas","Collect passport copies and photos into vault","PA",-100,"Parent;PA"],["T033","Visas","Attest UK marriage certificate (FCDO + UAE embassy)","PA",-95,"Parent;PA"],["T034","Visas","Attest children's birth certificates","PA",-95,"Parent;PA"],["T035","Visas","Attest degree certificates if needed for employment visa","PA",-95,"Parent;PA"],["T036","Visas","Submit principal visa / Golden Visa application","Partner",-60,"Parent"],["T037","Visas","Entry permit issued","Partner",-30,"Parent;PA"],["T038","Visas","Medical fitness test booked","Partner",5,"Parent;PA"],["T039","Visas","Emirates ID biometrics","Partner",7,"Parent;PA"],["T040","Visas","Residence visa stamped for principal","Partner",14,"Parent;PA"],["T041","Visas","Dependent visas for spouse and children","Partner",21,"Parent;PA"],["T042","Visas","Domestic worker visas for staff","Partner",30,"Parent;PA"],["T043","Visas","Staff medical and Emirates ID","Partner",40,"Parent;PA"],["T044","Visas","Staff employment contract and insurance","Client",40,"Parent"],["T045","Schools","School needs call (curriculum / SEN / ethos / commute)","Founder",-115,"Parent"],["T046","Schools","Shortlist 4-6 schools per child with KHDA rating and fees","Founder",-110,"Parent;PA"],["T047","Schools","Check waitlists and term-start dates","Founder",-108,"Parent;PA"],["T048","Schools","Book virtual or in-person tours","PA",-100,"Parent;PA"],["T049","Schools","Submit applications and pay application fees","PA",-95,"Parent;PA"],["T050","Schools","Schedule entrance assessments","Founder",-80,"Parent;PA"],["T051","Schools","Prepare children for assessments","Client",-75,"Parent"],["T052","Schools","Collect offers and compare","Founder",-60,"Parent"],["T053","Schools","Accept offer and pay seat deposit","Client",-55,"Parent"],["T054","Schools","Uniforms / books / transport / lunch set up","PA",-14,"Parent;PA"],["T055","Schools","SEN support plan agreed with school","Founder",-45,"Parent"],["T056","Schools","Extracurriculars and clubs booked","PA",21,"Parent;PA"],["T057","Property","Brief broker partner on requirements","Founder",-100,"Parent"],["T058","Property","Area tour itinerary (factor school commute)","Founder",-90,"Parent;PA"],["T059","Property","Shortlist 8-12 properties","Partner",-80,"Parent;PA"],["T060","Property","Viewing trip (or video viewings)","Founder",-75,"Parent;PA"],["T061","Property","Rental: offer and tenancy contract (Ejari)","Partner",-45,"Parent"],["T062","Property","Rental: post-dated cheques / payment plan arranged","Client",-40,"Parent"],["T063","Property","Purchase: MOU (Form F) signed","Partner",-60,"Parent"],["T064","Property","Purchase: mortgage or cash funds confirmed (via bank partner)","Partner",-55,"Parent"],["T065","Property","Purchase: snagging / survey","Partner",-40,"Parent"],["T066","Property","Purchase: DLD transfer and title deed","Partner",-30,"Parent"],["T067","Property","Property-linked Golden Visa check (AED 2m+)","Partner",-25,"Parent"],["T068","Property","DEWA (utilities) connected","PA",-7,"Parent;PA"],["T069","Property","Internet and TV (du / e&) installed","PA",-7,"Parent;PA"],["T070","Property","Home insurance","Client",-7,"Parent"],["T071","Property","Interior design / furnishing brief","Founder",-40,"Parent;PA"],["T072","Property","Furniture delivered and installed","Partner",-3,"Parent;PA"],["T073","Property","Security system / smart home set up","Partner",-3,"Parent;PA"],["T074","Property","Deep clean before arrival","Partner",-2,"Parent;PA"],["T075","Property","Stock fridge and essentials for arrival","PA",-1,"Parent;PA"],["T076","Property Care","Introduce licensed property manager","Founder",30,"Parent"],["T077","Property Care","Maintenance contract (AC / pool / garden / pest)","Partner",30,"Parent;PA"],["T078","Property Care","Monthly property report to client","Partner",60,"Parent"],["T079","Freight","Get 3 mover quotes (survey)","Founder",-90,"Parent;PA"],["T080","Freight","Choose mover and book","Client",-80,"Parent"],["T081","Freight","Inventory and valuation for insurance","PA",-45,"Parent;PA"],["T082","Freight","Transit insurance in place","Partner",-30,"Parent"],["T083","Freight","Pack day","Partner",-21,"Parent;PA"],["T084","Freight","Container sails","Partner",-18,"Parent;PA"],["T085","Freight","Customs documents (passport / visa / inventory) submitted","Partner",5,"Parent;PA"],["T086","Freight","Customs clearance Jebel Ali","Partner",20,"Parent;PA"],["T087","Freight","Delivery and unpack","Partner",25,"Parent;PA"],["T088","Freight","Air freight for urgent items","Partner",-7,"Parent;PA"],["T089","Freight","Fine-art shipper and crating","Partner",-40,"Parent"],["T090","Freight","Wine shipping and import permit","Partner",-40,"Parent"],["T091","Freight","Jewellery / valuables hand-carry or secure courier","Partner",-7,"Parent"],["T092","Pets","Check breed is allowed in UAE","Founder",-120,"Parent;PA"],["T093","Pets","Microchip and rabies vaccination","Client",-110,"Parent;PA"],["T094","Pets","Rabies titre test (wait period)","Partner",-90,"Parent;PA"],["T095","Pets","UAE import permit (MOCCAE)","Partner",-21,"Parent;PA"],["T096","Pets","Pet relocation flight booked","Partner",-14,"Parent;PA"],["T097","Pets","Register with Dubai vet and municipality","PA",14,"Parent;PA"],["T100","Vehicles","Buy / lease car in Dubai","Founder",10,"Parent;PA"],["T101","Vehicles","Convert UK driving licence to UAE","PA",20,"Parent;PA"],["T102","Vehicles","Car insurance and Salik tag","PA",20,"Parent;PA"],["T103","Vehicles","Driver hired (if needed)","Founder",10,"Parent;PA"],["T104","Banking","Introduce private bank relationship manager","Founder",-60,"Parent"],["T105","Banking","Bank account opening (KYC / source of wealth)","Partner",15,"Parent"],["T106","Banking","Credit cards and local payments set up","Client",20,"Parent"],["T107","Banking","FX transfer partner for GBP\u2192AED","Founder",-30,"Parent"],["T108","Healthcare","Health insurance quotes (family)","Partner",-30,"Parent"],["T109","Healthcare","Health insurance bound (mandatory in Dubai)","Client",-14,"Parent"],["T110","Healthcare","Staff health insurance (employer duty)","Partner",30,"Parent"],["T111","Healthcare","Register with GP / paediatrician / dentist","PA",21,"Parent;PA"],["T112","Healthcare","Transfer medical records and prescriptions","PA",-14,"Parent;PA"],["T118","Investments","Introduce licensed wealth manager (introducer agreement in place)","Founder",30,"Parent"],["T119","Investments","Introduce licensed property investment broker","Founder",45,"Parent"],["T120","Arrival","Airport meet and greet (fast track)","Partner",0,"Parent;PA"],["T121","Arrival","Temporary serviced apartment / hotel if home not ready","Founder",0,"Parent;PA"],["T122","Arrival","Local SIM cards","PA",1,"Parent;PA"],["T123","Arrival","Orientation day (neighbourhood / shops / hospitals)","Founder",3,"Parent;PA"],["T124","Arrival","Household staff sourced (nanny / housekeeper)","Founder",7,"Parent;PA"],["T125","Social","Club memberships (beach / golf / sports)","Founder",21,"Parent;PA"],["T126","Social","Introductions to parent community and networks","Founder",30,"Parent"],["T127","Social","Faith / community connections","Founder",21,"Parent"],["T128","Closeout","30-day check-in","Founder",30,"Parent;PA"],["T129","Closeout","90-day review and testimonial request","Founder",90,"Parent"],["T130","Closeout","Ask for 2 referrals","Founder",60,"Parent"],["T131","Closeout","Invoice balance (50%)","Founder",1,"Parent"],["T132","Closeout","Offer Property Care retainer","Founder",60,"Parent"],["T133","Closeout","Revoke portal access","Founder",120,"Internal"]];
+const TODAY = new Date("2026-10-12T00:00:00");
+const MOVE = new Date("2027-01-04T00:00:00");
+let role = "Parent", tab = "overview", fPillar = "All", fStatus = "All";
+try { const s = localStorage.getItem("rl-tab"); if (s) tab = s; } catch(e) {}
+
+const fmt = d => d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+const addDays = n => { const d = new Date(MOVE); d.setDate(d.getDate()+n); return d; };
+const daysTo = d => Math.round((d - TODAY)/864e5);
+
+const tasks = TASKS.map(([id,pillar,task,owner,offset,vis]) => {
+  const due = addDays(offset), dd = daysTo(due);
+  let status = "todo";
+  if (dd < -3) status = "done";
+  else if ((owner==="Client"||owner==="PA") && dd <= 21) status = "you";
+  else if (dd <= 21) status = "prog";
+  return {id,pillar,task,owner,due,dd,vis:vis.split(";"),status};
+});
+const visible = () => tasks.filter(t => t.vis.includes(role) || (role==="Parent" && false));
+const STATUS = {done:["Done","c-done"],prog:["In progress","c-prog"],you:["Needs you","c-you"],todo:["Upcoming","c-todo"]};
+const chip = s => `<span class="chip ${STATUS[s][1]}">${STATUS[s][0]}</span>`;
+
+const TABS = [["overview","Overview"],["plan","Your plan"],["schools","Schools"],["home","Home"],["shipment","Shipment"],["team","Your team"],["money","Fees & introductions"]];
+
+function renderTabs(){
+  document.getElementById("tabs").innerHTML = TABS.map(([k,l]) =>
+    `<button role="tab" id="tab-${k}" aria-selected="${k===tab}" data-k="${k}">${l}${k==="money"&&role==="PA"?'<span class="lock" aria-label="restricted">· Parent only</span>':""}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { tab = b.dataset.k; try{localStorage.setItem("rl-tab",tab)}catch(e){} render(); });
+}
+
+function overview(){
+  const v = visible();
+  const pct = Math.round(100*v.filter(t=>t.status==="done").length/v.length);
+  const pillars = [...new Set(v.map(t=>t.pillar))].filter(p=>!["Onboarding","Closeout"].includes(p));
+  const pRows = pillars.map(p => { const pt=v.filter(t=>t.pillar===p); const d=Math.round(100*pt.filter(t=>t.status==="done").length/pt.length);
+    return `<div class="pillar"><span>${p}</span><div class="bar" role="img" aria-label="${p} ${d}% complete"><i style="width:${d}%"></i></div><span class="num">${d}%</span></div>`; }).join("");
+  const needs = v.filter(t=>t.status==="you").sort((a,b)=>a.due-b.due).slice(0,6);
+  const next = v.filter(t=>t.status==="prog").sort((a,b)=>a.due-b.due).slice(0,5);
+  const r = 34, c = 2*Math.PI*r;
+  return `
+  <section class="hero">
+    <div><div class="eyebrow">The Harrington family · Olivia (11) · Henry (7) · Bramble the dog</div>
+      <h1>Arriving in Dubai on ${MOVE.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}</h1>
+      <p class="sub">Family package · buying in Dubai Hills · London house being let · 40ft container</p></div>
+    <div class="count"><div class="big num">${daysTo(MOVE)}</div><div class="eyebrow">days to go</div></div>
+  </section>
+  <div class="grid">
+    <div class="stack">
+      <section class="panel">
+        <div class="ring">
+          <svg width="84" height="84" viewBox="0 0 84 84" role="img" aria-label="${pct}% of plan complete">
+            <circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--accent-soft)" stroke-width="8"/>
+            <circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${c*pct/100} ${c}" transform="rotate(-90 42 42)"/>
+            <text x="42" y="47" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="16" fill="var(--ink)">${pct}%</text>
+          </svg>
+          <div><h2>Move progress</h2><div class="meta">${v.filter(t=>t.status==="done").length} of ${v.length} tasks complete</div></div>
+        </div>
+        ${pRows}
+      </section>
+    </div>
+    <div class="stack">
+      <section class="panel">
+        <h2>Needs you</h2><div class="meta">Tasks waiting on the ${role==="PA"?"family office":"family"}</div>
+        <ul class="list" style="margin-top:8px">${needs.length?needs.map(t=>`<li><div>${t.task}<div class="meta">${t.pillar} · due <span class="num">${fmt(t.due)}</span></div></div>${chip(t.status)}</li>`).join(""):`<li><div class="meta">Nothing waiting on you this week.</div></li>`}</ul>
+      </section>
+      <section class="panel">
+        <h2>We're working on</h2>
+        <ul class="list" style="margin-top:8px">${next.map(t=>`<li><div>${t.task}<div class="meta">${t.pillar} · ${t.owner==="Partner"?"partner":"Relocate"} · <span class="num">${fmt(t.due)}</span></div></div>${chip(t.status)}</li>`).join("")}</ul>
+      </section>
+      <section class="panel update">
+        <div class="eyebrow">Weekly update · Fri 9 Oct</div>
+        <p>Dubai College confirmed Olivia's assessment for 4 November. Repton has a Year 3 place for Henry subject to a reading assessment. The Dubai Hills villa passed survey, and Form F is ready for signature. Bramble's rabies titre test came back clear, so the 3-month wait has started.</p>
+      </section>
+    </div>
+  </div>`;
+}
+
+function plan(){
+  let v = visible();
+  const pillars = ["All",...new Set(v.map(t=>t.pillar))];
+  if (fPillar!=="All") v = v.filter(t=>t.pillar===fPillar);
+  if (fStatus!=="All") v = v.filter(t=>t.status===fStatus);
+  const groups = {};
+  v.sort((a,b)=>a.due-b.due).forEach(t => { const k=t.due.toLocaleDateString("en-GB",{month:"long",year:"numeric"}); (groups[k]=groups[k]||[]).push(t); });
+  return `<h2>Your plan</h2><p class="sub" style="margin-bottom:16px">Built from your intake: two children, staff, a dog, buying, a 40ft container, art and wine, London house let. ${role==="PA"?"Parent-only items are hidden in this view.":""}</p>
+  <div class="filters">
+    <label class="meta" for="fp">Area</label><select id="fp">${pillars.map(p=>`<option ${p===fPillar?"selected":""}>${p}</option>`).join("")}</select>
+    <label class="meta" for="fs">Status</label><select id="fs">${[["All","All"],["you","Needs you"],["prog","In progress"],["todo","Upcoming"],["done","Done"]].map(([k,l])=>`<option value="${k}" ${k===fStatus?"selected":""}>${l}</option>`).join("")}</select>
+    <span class="meta num">${v.length} tasks</span>
+  </div>
+  <section class="panel">${Object.entries(groups).map(([m,ts])=>`<div class="month"><h3>${m}</h3>${ts.map(t=>`<div class="task"><span class="num">${fmt(t.due)}</span><div class="t">${t.task}<div class="meta">${t.pillar} · ${t.owner==="Client"?"You":t.owner==="PA"?"PA":t.owner==="Partner"?"Partner":"Relocate"}</div></div>${chip(t.status)}</div>`).join("")}</div>`).join("") || '<p class="meta">No tasks match these filters.</p>'}</section>`;
+}
+
+function schools(){
+  const rows = [
+    ["Olivia","Year 7","Dubai College","British","Assessment booked","4 Nov","c-prog"],
+    ["Olivia","Year 7","GEMS Wellington International","British / IB","Application submitted","Awaiting date","c-todo"],
+    ["Henry","Year 3","Repton Dubai","British","Offer pending reading test","22 Oct","c-you"],
+    ["Henry","Year 3","Kings' School Al Barsha","British","Waitlist #4","Reviewed weekly","c-todo"],
+  ];
+  return `<h2>Schools</h2><p class="sub" style="margin-bottom:16px">January 2027 entry. Shortlisted for curriculum fit and a school run of under 25 minutes from Dubai Hills.</p>
+  <div class="cards" style="margin-bottom:20px">
+    <div class="panel kid"><div class="eyebrow">Child 1</div><h4>Olivia, 11</h4><dl class="kv"><dt>Current school</dt><dd>London prep</dd><dt>Entering</dt><dd>Year 7</dd><dt>Priorities</dt><dd>Academics, music</dd></dl></div>
+    <div class="panel kid"><div class="eyebrow">Child 2</div><h4>Henry, 7</h4><dl class="kv"><dt>Current school</dt><dd>London pre-prep</dd><dt>Entering</dt><dd>Year 3</dd><dt>Priorities</dt><dd>Sport, small classes</dd></dl></div>
+  </div>
+  <section class="panel tbl"><table><thead><tr><th>Child</th><th>School</th><th>Curriculum</th><th>Stage</th><th>Next date</th></tr></thead><tbody>
+  ${rows.map(r=>`<tr><td>${r[0]}<div class="meta">${r[1]}</div></td><td>${r[2]}</td><td>${r[3]}</td><td><span class="chip ${r[6]}">${r[4]}</span></td><td class="num">${r[5]}</td></tr>`).join("")}
+  </tbody></table></section>`;
+}
+
+function home(){
+  const v = [
+    ["Dubai Hills Estate","5-bed villa, park-facing","AED 14.5m","12 min","Under offer","c-brass"],
+    ["Jumeirah Golf Estates","6-bed villa, golf course view","AED 16.2m","24 min","Viewed, 4/5","c-prog"],
+    ["Arabian Ranches III","5-bed villa, corner plot","AED 9.8m","28 min","Viewed, 3/5","c-todo"],
+    ["Emirates Hills","6-bed villa, lake view","AED 42m","18 min","Over budget, declined","c-crit"],
+  ];
+  return `<h2>Home</h2><p class="sub" style="margin-bottom:16px">Buying, with a budget up to AED 17m. Shortlist from our broker partner, ranked by school commute.</p>
+  <div class="cards">${v.map(x=>`<div class="panel villa"><div class="ph" role="img" aria-label="Property photo placeholder"></div><span class="chip ${x[5]}">${x[4]}</span><h4 style="margin-top:8px">${x[0]}</h4><div class="meta">${x[1]}</div>
+  <dl class="kv"><dt>Price</dt><dd class="num">${x[2]}</dd><dt>School run</dt><dd class="num">${x[3]}</dd></dl></div>`).join("")}</div>
+  <p class="note">Property transactions are handled by our RERA-licensed broker partner. Relocate coordinates on your behalf.</p>`;
+}
+
+function shipment(){
+  const s = [["Survey and quote accepted","15 Sep",1],["Inventory and valuation","20 Nov",0],["Transit insurance","5 Dec",0],["Pack day, Richmond","14 Dec",0],["Container sails from Felixstowe","17 Dec",0],["Customs clearance, Jebel Ali","24 Jan",0],["Delivery and unpack, Dubai Hills","29 Jan",0]];
+  const now = s.findIndex(x=>!x[2]);
+  return `<h2>Shipment</h2><p class="sub">40ft container plus art crate and wine consignment. Air freight for school uniforms and essentials.</p>
+  <div class="grid" style="margin-top:16px">
+    <section class="panel"><ol class="steps">${s.map((x,i)=>`<li><span class="dot ${x[2]?"done":i===now?"now":""}"></span><div>${x[0]}${i===now?'<div class="meta">Next step</div>':""}</div><span class="num meta">${x[1]}</span></li>`).join("")}</ol></section>
+    <section class="panel"><h2>Consignment</h2><dl class="kv"><dt>Mover</dt><dd>FIDI-accredited partner</dd><dt>Volume</dt><dd class="num">40ft · ~58 m³</dd><dt>Insured value</dt><dd class="num">${role==="PA"?"Parent only":"£420,000"}</dd><dt>Art</dt><dd>3 works, crated</dd><dt>Wine</dt><dd>14 cases, import permit pending</dd><dt>Tracking</dt><dd>Live once sailed</dd></dl></section>
+  </div>`;
+}
+
+function team(){
+  const t = [["KS","Your Relocate lead","Single point of contact for everything","Founder"],["PR","Visa partner","Licensed PRO. Golden Visa, dependants, staff","Visas"],["BR","Property partner","RERA-licensed prime brokerage","Property"],["SA","Schools adviser","Admissions and assessments","Schools"],["MV","Moving partner","FIDI-accredited international mover","Freight"],["TX","UK tax partner","Private client tax firm. UK exit planning","UK Exit"],["PT","Pet relocation","IPATA member. Bramble's move","Pets"],["HI","Health insurance","Licensed broker. Family and staff cover","Healthcare"]];
+  return `<h2>Your team</h2><p class="sub" style="margin-bottom:16px">Vetted, licensed partners, coordinated by Relocate. You deal with one person.</p>
+  <div class="team">${t.map(x=>`<div class="panel"><div class="avatar">${x[0]}</div><strong>${x[1]}</strong><div class="meta">${x[2]}</div><div style="margin-top:10px"><span class="chip c-todo">${x[3]}</span></div></div>`).join("")}</div>`;
+}
+
+function money(){
+  if (role==="PA") return `<section class="panel locked"><h2>Parent only</h2><p>Fees, investment introductions and commission disclosures are visible to Mr and Mrs Harrington only.</p></section>`;
+  return `<h2>Fees & introductions</h2>
+  <div class="grid" style="margin-top:16px">
+    <section class="panel"><h2>Your package</h2><dl class="kv"><dt>Package</dt><dd>Family</dd><dt>Fee</dt><dd class="num">£15,000</dd><dt>Paid</dt><dd class="num">£7,500 · 14 Sep</dd><dt>Balance due</dt><dd class="num">£7,500 · on arrival</dd></dl>
+    <p class="note">Partner referral fees: some partners pay Relocate a referral fee. Each one is listed in your engagement letter. Partners are chosen for fit, never for the fee they pay.</p></section>
+    <section class="panel"><h2>Introductions</h2><ul class="list" style="margin-top:8px">
+      <li><div>Private bank relationship manager<div class="meta">Banking · introduced 2 Oct</div></div><span class="chip c-done">Account opening</span></li>
+      <li><div>DFSA-licensed wealth manager<div class="meta">Investments · after arrival</div></div><span class="chip c-todo">Upcoming</span></li>
+      <li><div>Licensed property investment broker<div class="meta">Investments · after arrival</div></div><span class="chip c-todo">Upcoming</span></li>
+    </ul><p class="note">Relocate introduces you to licensed firms only. We don't give investment, tax or legal advice.</p></section>
+  </div>`;
+}
+
+function render(){
+  renderTabs();
+  const V = {overview,plan,schools,home,shipment,team,money};
+  document.getElementById("view").innerHTML = (V[tab]||overview)();
+  const fp = document.getElementById("fp"), fs = document.getElementById("fs");
+  if (fp) fp.onchange = e => { fPillar = e.target.value; render(); };
+  if (fs) fs.onchange = e => { fStatus = e.target.value; render(); };
+}
+function setRole(r){
+  role = r;
+  document.getElementById("r-parent").setAttribute("aria-pressed", r==="Parent");
+  document.getElementById("r-pa").setAttribute("aria-pressed", r==="PA");
+  fPillar = "All"; render();
+}
+document.getElementById("r-parent").onclick = () => setRole("Parent");
+document.getElementById("r-pa").onclick = () => setRole("PA");
+render();
+</script>
