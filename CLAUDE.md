@@ -7,7 +7,7 @@ Relocate is a premium, personalised UK → Dubai relocation service, delivered a
 
 ## Founder (key facts)
 - Solo founder with a large network of partners to coordinate. Plans to hire a team over time.
-- UK resident and UK tax resident; spends about half the year in Dubai.
+- UK tax resident today; spends about half the year in Dubai; holds an Emirates ID and a UAE bank account. **No UK family or home ties.** Will move to Dubai full-time, won't return to the UK, and will move the company to the UAE.
 - About £2–3k of savings to start; works on this full-time but doesn't depend on it for income.
 - Wants first revenue by Dec 2026 and **£100k/month by Jul 2027**.
 - Wants blunt, critical, strategic advice. Don't just agree.
