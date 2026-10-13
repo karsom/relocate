@@ -132,3 +132,7 @@ T130,Closeout,Ask for 2 referrals,Founder,60,Parent,always
 T131,Closeout,Invoice balance (50%),Founder,1,Parent,always
 T132,Closeout,Offer Property Care retainer,Founder,60,Parent,always
 T133,Closeout,Revoke portal access,Founder,120,Internal,always
+T134,Property,District cooling account (Empower / other) if applicable,PA,-7,Parent;PA,always
+T135,Property,Gas connection,PA,-7,Parent;PA,always
+T136,Property,Drinking water delivery set up,PA,-2,Parent;PA,always
+T137,Healthcare,Life insurance review (via licensed broker),Partner,45,Parent,always
