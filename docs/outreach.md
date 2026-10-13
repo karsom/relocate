@@ -92,3 +92,32 @@ Your best source of families. These people know who's leaving before anyone else
 > Our families are demanding but loyal. Get the first placement right and you'll get their friends. Could we meet this week?
 
 **What to check before signing:** licence valid and checked on MOHRE; replacement guarantee of at least 3 months; staff visa process handled; how candidates are treated (no passport retention, fair contracts). A scandal at an agency becomes your scandal.
+
+## 9. Approaching broker teams: give first, then ask
+
+**Who to target (not the CEO):**
+- Dubai: sales team leads for family villa communities (Dubai Hills, Arabian Ranches, Jumeirah Golf Estates, the Palm), and heads of leasing.
+- London: the international / Middle East desk partners at Knight Frank, Savills and Chestertons.
+
+**Channels, best first:**
+1. A warm intro from your own Dubai contacts.
+2. WhatsApp. Dubai agents live on it, and the numbers are on their Bayut / Property Finder listings.
+3. LinkedIn, with a note that mentions one of their listings.
+4. Walk in (boutiques like Aeon & Trisl in Mayfair).
+5. Their own buyer events.
+
+**Free value to lead with (pick 1–2 per broker):**
+1. **School-run sheet for their listing:** one page per community showing the schools within 20 minutes, curriculum, inspection rating, fee band and waitlist status. Agents use it at viewings.
+2. **Co-branded family timeline:** their logo next to yours on the UK → Dubai timeline, for their UK leads.
+3. **Unblock one stuck deal, free:** a UK family hesitating over schools or visas. You sort the plan so the deal closes.
+4. **Move-in welcome pack for their buyers and tenants:** DEWA, cooling, gas, internet, water, insurance contacts. Fewer after-sales calls for them.
+5. **Send them a lead first:** even one rental tenant from your network.
+6. **A family-relocation talk at their London buyer events.**
+
+**The free limit:** one family or one deliverable per broker. Before the second, sign a referral agreement.
+
+**WhatsApp / LinkedIn opener:**
+> Hi [Name], I saw your [Dubai Hills villa] listing. I run Relocate: we move UK families to Dubai and handle schools, visas, freight and setup. I've put together a one-page school-run sheet for [community] (which schools are within 20 minutes, curriculum, ratings, fees). Happy to send it over for your viewings, no strings. Want it?
+
+**After they say yes (day 3):**
+> Glad it's useful. If you've got a UK family who's stalling on schools or visas, send them my way and I'll get them unstuck so your deal closes. First one's on me. Coffee this week?
