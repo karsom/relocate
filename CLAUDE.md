@@ -38,5 +38,9 @@ Airtable + Softr (portal; Parent, PA and Admin roles) + Tally (intake) + Make.co
 - `docs/client-intake.md`: Tally intake form spec
 - `docs/airtable-schema.md`: data model and permissions
 - `docs/compliance.md`: regulatory guardrails
+- `docs/referral-programme.md`: partner vetting, fees, intro email template
+- `docs/outreach.md`: outreach drafts (brokers, clients, wealth managers, staffing agencies)
+- `lead-magnet/uk-dubai-timeline.html`: one-page timeline for prospects
+- `demo/portal.html`: clickable client portal demo
 - `data/task-templates.csv`: master task list (import into Airtable)
 - `data/partner-categories.csv`: partner types to recruit
