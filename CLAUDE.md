@@ -45,3 +45,4 @@ Airtable + Softr (portal; Parent, PA and Admin roles) + Tally (intake) + Make.co
 - `demo/portal.html`: clickable client portal demo
 - `data/task-templates.csv`: master task list (import into Airtable)
 - `data/partner-categories.csv`: partner types to recruit
+- `data/broker-targets.csv`: tiered list of Dubai brokers with London links
