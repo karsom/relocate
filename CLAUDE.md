@@ -14,9 +14,9 @@ Relocate is a premium, personalised UK → Dubai relocation service, delivered a
 
 ## Deadlines and pace (founder's rule)
 - **Never say "this week" or "this month".** Set deadlines for the same day, with clock times where possible (e.g. "by 14:00", "before you sleep").
-- Make deadlines aggressive enough that he hits about 70% of them. If he's hitting all of them, they're too soft.
+- Make deadlines aggressive enough that the founder hits about 70% of them. If the founder is hitting all of them, they're too soft.
 - Work in time-boxed blocks (15–60 min), and say what's done at the end of each block.
-- Deadlines apply to his own actions (send, call, publish, walk in). Other people's replies, signatures and approvals can't be forced, so set the deadline on the chase instead.
+- Deadlines apply to the founder's own actions (send, call, publish, walk in). Other people's replies, signatures and approvals can't be forced, so set the deadline on the chase instead.
 - Default to doing it now, shipping at 80%, and fixing it live.
 
 ## Clients
