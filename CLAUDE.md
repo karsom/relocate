@@ -12,6 +12,13 @@ Relocate is a premium, personalised UK → Dubai relocation service, delivered a
 - Wants first revenue by Dec 2026 and **£100k/month by Jul 2027**.
 - Wants blunt, critical, strategic advice. Don't just agree.
 
+## Deadlines and pace (founder's rule)
+- **Never say "this week" or "this month".** Set deadlines for the same day, with clock times where possible (e.g. "by 14:00", "before you sleep").
+- Make deadlines aggressive enough that he hits about 70% of them. If he's hitting all of them, they're too soft.
+- Work in time-boxed blocks (15–60 min), and say what's done at the end of each block.
+- Deadlines apply to his own actions (send, call, publish, walk in). Other people's replies, signatures and approvals can't be forced, so set the deadline on the chase instead.
+- Default to doing it now, shipping at 80%, and fixing it live.
+
 ## Clients
 - Primary: families worth **£5–15m** with school-age kids.
 - Secondary: well-capitalised founders (sold as a Founder add-on).
